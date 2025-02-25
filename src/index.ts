@@ -2,6 +2,7 @@
 import express, { Express, Request, Response, Router } from "express";
 import dotenv from "dotenv";
 import middleware from './middleware';
+import { baristaInstance, baristaTeamInstance } from './barista';
 
 dotenv.config();
 
@@ -15,9 +16,11 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
 
-// Basic Get Barist Team with Team ID in Path
-app.get("/baristaTeam/:baristaTeamId", (req: Request, res: Response) => {
-  res.send("Getting Barista Team with ID: " + req.params.baristaTeamId);
+// Basic Get Barista Team with Team ID in Path
+app.get("/baristaTeam/:baristaTeamId", (req: Request, res: Response) => {  
+  console.log("Getting Barista Team with ID: " + req.params.baristaTeamId);
+
+  
 });
 
 app.listen(port, () => {
