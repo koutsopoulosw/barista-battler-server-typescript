@@ -4,7 +4,7 @@ class baristaInstance {
   currentDmg: number;
 
   constructor(currentHealth = 1, currentDmg = 1) {
-    this.id = Math.random();
+    this.id = Date.now();
     this.currentHealth = currentHealth;
     this.currentDmg = currentDmg;
   }
@@ -16,7 +16,7 @@ class baristaTeamInstance {
   baristas: baristaInstance[];
 
   constructor(round = 1, baristas : baristaInstance[]) {
-    this.id = Math.random();
+    this.id = Date.now();
     this.round = round;
     this.baristas = baristas;
   }

@@ -3,6 +3,7 @@ import express, { Express, Request, Response, Router } from "express";
 import dotenv from "dotenv";
 import middleware from './middleware';
 import { baristaInstance, baristaTeamInstance } from './barista';
+import { getBaristaTeamInstance } from "./data";
 
 dotenv.config();
 
@@ -17,10 +18,11 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Basic Get Barista Team with Team ID in Path
-app.get("/baristaTeam/:baristaTeamId", (req: Request, res: Response) => {  
+app.get("/baristaTeam/:baristaTeamId", async (req: Request, res: Response) => {  
   console.log("Getting Barista Team with ID: " + req.params.baristaTeamId);
 
-  
+  const response = await getBaristaTeamInstance(req.params.baristaTeamId);
+   res.send(response);
 });
 
 app.listen(port, () => {
